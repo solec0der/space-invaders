@@ -13,13 +13,13 @@ function EnemyShot(x, y) {
         this.y += 10;
     }
 
-    this.isColiding = function(enemy) {  
-        var a = this.x - enemy.x;
-        var b = this.y - enemy.y;
+    this.isColiding = function(player) {  
+        var a = this.x - player.x;
+        var b = this.y - player.y;
 
-        var c = Math.sqrt( a*a + b*b );
+        var c = Math.sqrt(a*a + b*b);
 
-        if(c < this.w + enemy.w) {
+        if(c < this.w + player.w) {
             return true;
         } else {
             return false;

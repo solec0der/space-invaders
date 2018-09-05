@@ -6,6 +6,7 @@
     <title>Space Invaders Remastered</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="game.js"></script>
     <script src="player.js"></script>
     <script src="shot.js"></script>
@@ -19,7 +20,7 @@
         <div class="canvas">
             <canvas id="gameCanvas" width="800" height="600"></canvas>
         </div>
-        <button onclick="startGame();" class="button">Start</button>
+        <button id="start" onclick="startGame();" class="button">Start</button>
     </div>
 
     <div class="img-left">
@@ -33,6 +34,3 @@
     <div class="copyright-bar">
         <p class="copyright">&copy; Yannick Huggler 2018</p>
     </div>
-
-</body>
-</html>

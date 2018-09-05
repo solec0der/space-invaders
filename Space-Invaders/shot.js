@@ -1,6 +1,6 @@
 function Shot(x) {
-    this.w = 5;
-    this.h = 20;
+    this.w = 10;
+    this.h = 10;
     this.x = x;
     this.y = canvas.height - 10;
 
@@ -19,7 +19,7 @@ function Shot(x) {
 
         var c = Math.sqrt( a*a + b*b );
 
-        if(c < this.w + enemy.w) {
+        if(c < this.w-10 + enemy.w) {
             return true;
         } else {
             return false;

@@ -24,7 +24,7 @@ function Enemy() {
 
     this.isShooting = function() {
         var rand = getRandomInt(1, 150);
-        if(rand == 25) {
+        if(rand == 10) {
             return true;
         } else {
             return false;

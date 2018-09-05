@@ -15,6 +15,8 @@ var shootSound;
 var explosionSound;
 var killingInvadersSound;
 
+var enemyCount = 25;
+
 
 // Function, that's beeing executd, when the page's been fully loaded.
 window.onload = function() {
@@ -28,14 +30,13 @@ window.onload = function() {
     
     player = new Player();
 
-    setBackground();
-    initEnemies();
-
+    // Starts the game loop.
     setInterval(function() {
         if(gameIsRunning) {
             setBackground();
             moveEnemies();
             player.show();
+
 
             // Shows all the enemys.
             for(var i = 0; i < enemies.length; i++) {
@@ -61,6 +62,13 @@ window.onload = function() {
                 enemyshots[i].show();
             }
 
+            for(var i = 0; i < enemyshots.length; i++) {
+                if(enemyshots[i].isColiding(player)) {
+                    explosionSound.play();
+                    resetGame();
+                }
+            }
+
             // Checks, if the player's shot is coliding with an enemy.
             for(var i = 0; i < shots.length; i++) {
                 for(var j = 0; j < enemies.length; j++) {
@@ -78,9 +86,12 @@ window.onload = function() {
 
 // Creates all the enemies.
 function initEnemies() {
-    for(var i = 0; i <= 25; i++) {
+    for(var i = 0; i <= enemyCount; i++) {
         enemies.push(new Enemy());
     }
+}
+function pushNewEnemy() {
+    enemies.push(new Enemy());
 }
 
 // Prepares the canvas for redrawing.
@@ -126,11 +137,13 @@ window.onkeyup = function(e) {
     } else if(key == 32) {
         invokeShot();
     }
-
  }
 
  function startGame() {
-     gameIsRunning = true;
+    document.getElementById('start').disabled = true;
+    setBackground();
+    initEnemies();
+    gameIsRunning = true;
  }
 
  function stopGame() {
@@ -154,4 +167,12 @@ function Sound(src) {
     this.stop = function(){
         this.sound.pause();
     }
-} 
+}
+
+function resetGame() {
+    document.getElementById('start').disabled = false;
+    stopGame();
+    enemies.splice(0, enemies.length);
+    enemyshots.splice(0, enemyshots.length);
+    shots.splice(0, shots.length);
+}
