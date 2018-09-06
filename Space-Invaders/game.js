@@ -130,8 +130,6 @@ function moveEnemies() {
 
 function startGame() {
     document.getElementById('start').disabled = true;
-
-
     player = new Player();
     clearBackground();
     initEnemies();
