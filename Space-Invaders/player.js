@@ -5,8 +5,11 @@ function Player() {
     this.y = canvas.height - 35;
 
     this.show = function() {
-        ctx.fillStyle = "white";
-        ctx.fillRect(this.x, this.y, this.w, this.h);  
+        // ctx.fillStyle = "white";
+        // ctx.fillRect(this.x, this.y, this.w, this.h);
+        var image = new Image();
+        image.src = "img/player.png";
+          ctx.drawImage(image, this.x, this.y);
     }
 
     this.move = function(dir) {

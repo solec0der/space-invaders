@@ -1,8 +1,8 @@
 function Shot(x) {
-    this.w = 10;
-    this.h = 10;
+    this.w = 5;
+    this.h = 20;
     this.x = x;
-    this.y = canvas.height - 10;
+    this.y = canvas.height - 20;
 
     this.show = function() {
         ctx.fillStyle = "white";
@@ -19,7 +19,7 @@ function Shot(x) {
 
         var c = Math.sqrt( a*a + b*b );
 
-        if(c < this.w-10 + enemy.w) {
+        if(c < this.w + enemy.w) {
             return true;
         } else {
             return false;

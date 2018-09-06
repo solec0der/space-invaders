@@ -14,7 +14,7 @@ function EnemyShot(x, y) {
     }
 
     this.isColiding = function(player) {  
-        var a = this.x - player.x;
+        var a = this.x - player.x - 32;
         var b = this.y - player.y;
 
         var c = Math.sqrt(a*a + b*b);

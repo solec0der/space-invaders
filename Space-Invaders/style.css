@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
-html, body {
+html,
+body {
     margin: 0;
     background-color: #000000;
     font-size: 62.5%;
@@ -8,6 +9,13 @@ html, body {
 }
 
 div.canvas {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    margin: 0;
+    padding: 0;
     border: 1px solid #ffffff;
 }
 
@@ -23,6 +31,7 @@ p.heading {
     color: white;
     font-size: 6em;
     text-align: center;
+    
 }
 
 button.button {
@@ -43,18 +52,7 @@ button.button:hover {
     color: black;
 }
 
-div.copyright-bar {
-    transform: translate(-50%, -50%);
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    text-align: center;
-}
 
-p.copyright {
-    font-size: 3em;
-    color: white;
-}
 
 div.img-left {
     position: absolute;
