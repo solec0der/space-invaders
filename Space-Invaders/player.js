@@ -3,10 +3,9 @@ function Player() {
     this.h = 25;
     this.x = canvas.width / 2 - this.w / 2;
     this.y = canvas.height - 35;
+    this.item;
 
     this.show = function() {
-        // ctx.fillStyle = "white";
-        // ctx.fillRect(this.x, this.y, this.w, this.h);
         var image = new Image();
         image.src = "img/player.png";
           ctx.drawImage(image, this.x, this.y);
@@ -23,5 +22,9 @@ function Player() {
                 console.log(this.x);
             }
         }
+    }
+
+    this.setItem = function(item) {
+        this.item = item;
     }
 }

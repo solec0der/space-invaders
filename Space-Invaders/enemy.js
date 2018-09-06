@@ -5,8 +5,11 @@ function Enemy() {
     this.h = 20;
 
     this.show = function() {
-        ctx.fillStyle = "red";
-        ctx.fillRect(this.x, this.y, this.w, this.h);
+        // ctx.fillStyle = "red";
+        // ctx.fillRect(this.x, this.y, this.w, this.h);
+        var image = new Image();
+        image.src = "img/enemy.png";
+        ctx.drawImage(image, this.x, this.y);
     }
 
     this.move = function() {

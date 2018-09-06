@@ -20,6 +20,10 @@ var enemyCount = 25;
 
 var score = 0;
 
+var itemTypes = ["doubleShot", "tripple-shot", "superShot"];
+
+var items = [];
+
 function setupGame() {
     canvas = document.getElementById('gameCanvas');
     ctx = canvas.getContext('2d');
@@ -46,12 +50,14 @@ window.onload = function () {
 function loop() {
     // All the functions used to draw the whole game.
     clearBackground();
-    drawItembox();
     showStars();
     moveEnemies();
     showEnemies();
     showShots();
     showEnemyshots();
+    drawItembox();
+    spawnItem();
+    showItems();
     player.show();
     
     // Invokes enemyshots in randomly chosen intervals.
@@ -82,6 +88,13 @@ function loop() {
     drawText();
 }
 
+function spawnItem() {
+    var rand = getRandomInt(1, 300);
+    if(rand == 25) {
+        items.push(new Item(itemTypes[getRandomInt(0, itemTypes.length)]));
+    }
+}
+
 // Creates all the enemies.
 function initEnemies() {
     for (var i = 0; i <= enemyCount; i++) {
@@ -90,7 +103,7 @@ function initEnemies() {
 }
 
 function initStars() {
-    for(var i = 0; i < 200; i++) {
+    for(var i = 0; i < 150; i++) {
         stars.push(new Star());
     }
 }
@@ -106,7 +119,7 @@ function pushNewEnemy() {
 
 // Invokes a shot of an enemy.
 function invokeEnemyShot(x, y) {
-    enemyshots.push(new EnemyShot(x, y));
+    enemyshots.push(new EnemyShot(x + 16, y + 16));
     shootSound.play();
 }
 

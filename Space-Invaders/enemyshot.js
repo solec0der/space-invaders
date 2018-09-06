@@ -14,15 +14,11 @@ function EnemyShot(x, y) {
     }
 
     this.isColiding = function(player) {  
-        var a = this.x - player.x - 32;
-        var b = this.y - player.y;
-
-        var c = Math.sqrt(a*a + b*b);
-
-        if(c < this.w + player.w) {
-            return true;
-        } else {
-            return false;
-        }
+        return !(
+            ( ( this.y + this.h ) < ( player.y ) ) ||
+            ( this.y > ( player.y+15 + 15) ) ||
+            ( ( this.x + this.w ) < player.x ) ||
+            ( this.x > ( player.x + 64 ) )
+        );
     }
 }

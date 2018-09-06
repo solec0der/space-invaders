@@ -1,15 +1,26 @@
+/**
+ * Author:      Yannick Huggler
+ * Game-Name:   Space-Invaders-Remastered
+ * Descriptiom: A remastered version of the classic space-invaders.
+ * 
+ * Handles all the drawing operations that are needed for the game.
+ */
+
+
+
 // Handles all the text drawing.
 function drawText() {
     ctx.font = "20px Arial";
     ctx.fillStyle = "white";
-    ctx.fillText("Score: " + score, 10, 40);
-    ctx.fillText("Item", canvas.width - 65, 100, 50);
+    ctx.fillText("Score: " + score, 10, 25);
+    ctx.fillText("Item", canvas.width - 70, 25, 50);
 }
 
 function drawItembox() {
     ctx.strokeStyle = 'white';
-    ctx.strokeRect(canvas.width - 70, 20, 50, 50);
+    ctx.strokeRect(canvas.width - 80, 40, 64, 64);
     ctx.stroke();
+
 }
 
 // Clears the background.
@@ -26,13 +37,14 @@ function showEnemies() {
     }
 }
 
-// Shows the PLayer's Shots.
+// Shows the Player's Shots.
 function showShots() {
     for (var i = 0; i < shots.length; i++) {
         shots[i].move();
         shots[i].show();
     }
 }
+
 
 function showEnemyshots() {
     for (var i = 0; i < enemyshots.length; i++) {
@@ -46,5 +58,15 @@ function showStars() {
         stars[i].show();
         stars[i].move();
         stars[i].isOffscreen();
+    }
+}
+
+function showItems() {
+    for(var i = 0; i < items.length; i++) {
+        items[i].show();
+        items[i].move();
+        if(items[i].isOffscreen()) {
+            items.splice(i, 1);
+        }
     }
 }
