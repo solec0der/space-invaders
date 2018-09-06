@@ -20,7 +20,12 @@ function Item(type) {
         return this.y > canvas.height;
     }
 
-    this.isColiding = function() {
-        
+    this.isColiding = function(player) {
+        return !(
+            ( ( this.y + this.h ) < ( player.y ) ) ||
+            ( this.y > ( player.y+15 + 15) ) ||
+            ( ( this.x + this.w ) < player.x ) ||
+            ( this.x > ( player.x + 64 ) )
+        );
     }
 }

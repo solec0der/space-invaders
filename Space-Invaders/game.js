@@ -89,8 +89,9 @@ function loop() {
 }
 
 function spawnItem() {
-    var rand = getRandomInt(1, 300);
-    if(rand == 25) {
+    var rand = getRandomInt(1, 25);
+    if(rand == 24) {
+        console.log("amigo");
         items.push(new Item(itemTypes[getRandomInt(0, itemTypes.length)]));
     }
 }

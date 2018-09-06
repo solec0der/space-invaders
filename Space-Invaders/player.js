@@ -4,6 +4,7 @@ function Player() {
     this.x = canvas.width / 2 - this.w / 2;
     this.y = canvas.height - 35;
     this.item;
+    this.isItemSet = false;
 
     this.show = function() {
         var image = new Image();
@@ -26,5 +27,6 @@ function Player() {
 
     this.setItem = function(item) {
         this.item = item;
+        this.isItemSet = true;
     }
 }

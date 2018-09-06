@@ -21,6 +21,13 @@ function drawItembox() {
     ctx.strokeRect(canvas.width - 80, 40, 64, 64);
     ctx.stroke();
 
+    if(player.isItemSet) {
+        var image = new Image();
+        image.src = "img/items/" + player.item.type + ".png";
+
+        ctx.drawImage(image, canvas.width - 80, 40, 64, 64);
+    }
+
 }
 
 // Clears the background.
@@ -67,6 +74,12 @@ function showItems() {
         items[i].move();
         if(items[i].isOffscreen()) {
             items.splice(i, 1);
+            continue;
         }
+
+        if(items[i].isColiding(player)) {
+            player.setItem(items[i]);
+            items.splice(i, 1);
+        } 
     }
 }
