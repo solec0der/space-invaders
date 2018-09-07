@@ -19,10 +19,6 @@ function Shot(x) {
 
         var c = Math.sqrt( a*a + b*b );
 
-        if(c < this.w + enemy.w) {
-            return true;
-        } else {
-            return false;
-        }
+        return c < this.w + enemy.w;
     }
 }

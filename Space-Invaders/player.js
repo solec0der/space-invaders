@@ -10,6 +10,11 @@ function Player() {
         var image = new Image();
         image.src = "img/player.png";
           ctx.drawImage(image, this.x, this.y);
+
+          if(this.isItemSet) {
+
+            ctx.drawImage(this.item.image, canvas.width - 80, 40, 64, 64);
+          }
     }
 
     this.move = function(dir) {
@@ -20,7 +25,6 @@ function Player() {
         }  else {
             if(!(this.x > canvas.width - (2 * this.w))) {
                 this.x += canvas.width / 20;
-                console.log(this.x);
             }
         }
     }

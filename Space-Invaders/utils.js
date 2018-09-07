@@ -17,8 +17,6 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
-
 // Listens to key input of player.
 window.onkeyup = function(e) {
     var key = e.keyCode ? e.keyCode : e.which;

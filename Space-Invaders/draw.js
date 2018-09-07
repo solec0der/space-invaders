@@ -20,14 +20,6 @@ function drawItembox() {
     ctx.strokeStyle = 'white';
     ctx.strokeRect(canvas.width - 80, 40, 64, 64);
     ctx.stroke();
-
-    if(player.isItemSet) {
-        var image = new Image();
-        image.src = "img/items/" + player.item.type + ".png";
-
-        ctx.drawImage(image, canvas.width - 80, 40, 64, 64);
-    }
-
 }
 
 // Clears the background.

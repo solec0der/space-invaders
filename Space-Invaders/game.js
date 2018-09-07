@@ -21,6 +21,7 @@ var enemyCount = 25;
 var score = 0;
 
 var itemTypes = ["doubleShot", "tripple-shot", "superShot"];
+var itemImages = [];
 
 var items = [];
 
@@ -32,6 +33,15 @@ function setupGame() {
     shootSound = new Sound("sounds/shoot.wav");
     explosionSound = new Sound("sounds/explosion.wav");
     killingInvadersSound = new Sound("sounds/invaderkilled.wav");
+
+
+    itemImages.push(new Image());
+    itemImages.push(new Image());
+    itemImages.push(new Image());
+
+    itemImages[0].src="img/items/doubleShot.png";
+    itemImages[1].src="img/items/trippleShot.png";
+    itemImages[2].src="img/items/superShot.png";
     initStars();
 }
 
@@ -89,10 +99,9 @@ function loop() {
 }
 
 function spawnItem() {
-    var rand = getRandomInt(1, 25);
+    var rand = getRandomInt(1, 350);
     if(rand == 24) {
-        console.log("amigo");
-        items.push(new Item(itemTypes[getRandomInt(0, itemTypes.length)]));
+        items.push(new Item(itemImages[getRandomInt(0, 2)], itemTypes[getRandomInt(0, itemTypes.length)]));
     }
 }
 
