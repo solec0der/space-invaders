@@ -2,11 +2,8 @@
  * Author:      Yannick Huggler
  * Game-Name:   Space-Invaders-Remastered
  * Descriptiom: A remastered version of the classic space-invaders.
- * 
- * Handles all the drawing operations that are needed for the game.
+ * Filename:    draw.js
  */
-
-
 
 // Handles all the text drawing.
 function drawText() {
@@ -53,7 +50,7 @@ function showEnemyshots() {
 }
 
 function showStars() {
-    for(var i = 0; i < stars.length; i++) {
+    for (var i = 0; i < stars.length; i++) {
         stars[i].show();
         stars[i].move();
         stars[i].isOffscreen();
@@ -61,17 +58,20 @@ function showStars() {
 }
 
 function showItems() {
-    for(var i = 0; i < items.length; i++) {
+    for (var i = 0; i < items.length; i++) {
         items[i].show();
         items[i].move();
-        if(items[i].isOffscreen()) {
+        if (items[i].isOffscreen()) {
             items.splice(i, 1);
-            continue;
         }
+    }
+}
 
-        if(items[i].isColiding(player)) {
+function checkIfItemsColide() {
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].isColiding(player)) {
             player.setItem(items[i]);
             items.splice(i, 1);
-        } 
+        }
     }
 }

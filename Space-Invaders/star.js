@@ -1,3 +1,10 @@
+/**
+ * Author:      Yannick Huggler
+ * Game-Name:   Space-Invaders-Remastered
+ * Descriptiom: A remastered version of the classic space-invaders.
+ * Filename:    star.js
+ */
+
 function Star() {
     this.x = getRandomInt(0, canvas.width);
     this.y = getRandomInt(0, canvas.height + 200);

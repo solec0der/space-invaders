@@ -1,3 +1,10 @@
+/**
+ * Author:      Yannick Huggler
+ * Game-Name:   Space-Invaders-Remastered
+ * Descriptiom: A remastered version of the classic space-invaders.
+ * Filename:    player.js
+ */
+
 function Player() {
     this.w = 25;
     this.h = 25;
@@ -11,8 +18,8 @@ function Player() {
         image.src = "img/player.png";
           ctx.drawImage(image, this.x, this.y);
 
+          // If the user has got an item in his inventory, it will be shown in the top right.
           if(this.isItemSet) {
-
             ctx.drawImage(this.item.image, canvas.width - 80, 40, 64, 64);
           }
     }

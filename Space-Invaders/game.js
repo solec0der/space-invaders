@@ -1,3 +1,10 @@
+/**
+ * Author:      Yannick Huggler
+ * Game-Name:   Space-Invaders-Remastered
+ * Descriptiom: A remastered version of the classic space-invaders.
+ * Filename:    game.js
+ */
+
 var canvas;
 var ctx;
 
@@ -34,7 +41,7 @@ function setupGame() {
     explosionSound = new Sound("sounds/explosion.wav");
     killingInvadersSound = new Sound("sounds/invaderkilled.wav");
 
-
+    // Instantiates item images and stores them in an array for later use.
     itemImages.push(new Image());
     itemImages.push(new Image());
     itemImages.push(new Image());
@@ -63,6 +70,7 @@ function loop() {
     showStars();
     moveEnemies();
     showEnemies();
+    checkIfItemsColide();
     showShots();
     showEnemyshots();
     drawItembox();
@@ -98,6 +106,7 @@ function loop() {
     drawText();
 }
 
+// Spawns an item in random intervals.
 function spawnItem() {
     var rand = getRandomInt(1, 350);
     if(rand == 24) {

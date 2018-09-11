@@ -1,3 +1,11 @@
+/**
+ * Author:      Yannick Huggler
+ * Game-Name:   Space-Invaders-Remastered
+ * Descriptiom: A remastered version of the classic space-invaders.
+ * Filename:    utils.js
+ */
+
+// Handles the sound output for various sound effects.
 function Sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
@@ -13,6 +21,7 @@ function Sound(src) {
     }
 }
 
+// Returns a random int between a min and a max span.
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
